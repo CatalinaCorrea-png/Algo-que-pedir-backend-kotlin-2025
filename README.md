@@ -1,41 +1,118 @@
-# Ejemplo base para TP Algo3
+# 🛠️ Algo-que-pedir-backend-kotlin-2025
 
-[![Build](https://github.com/algo3-unsam/proyecto-base-tp/actions/workflows/build.yml/badge.svg)](https://github.com/algo3-unsam/tp-recetas-2020-gr-xx/actions/workflows/build.yml) ![Coverage](./.github/badges/jacoco.svg)
+**Backend API en Kotlin con Spring Boot** – una aplicación RESTful construida para el proyecto académico ***Algo que pedir*** - Trabajo práctico de la materia Algoritmos III - Tecnicatura en Programación Informática - UNSAM 2C 2025. Esta API sirve como backend para funcionalidades de manejo de datos y lógica de negocio, usando Spring Boot + Kotlin para un desarrollo moderno, seguro y escalable.
 
-- El build de Github Actions funciona de una, no tenés que configurar nada
-- También el coverage se genera solito si respetás las dependencias que están en el `build.gradle.kts`
-- en el archivo [settings.gradle.kts](./settings.gradle.kts) que está en el raíz tenés que cambiarle al nombre de tu proyecto
+---
+### 🚀 Features
 
-```kts
-rootProject.name = "proyecto-base-tp"
+✔ Construido con Kotlin + Spring Boot </br>
+✔ API REST para manejar recursos backend </br>
+✔ Estructura limpia con capas (Controller, Service, Repository) </br>
+✗ Integración con base de datos (Repositorios en memoria) </br>
+✔ Pruebas y configuración listos para usar </br>
+✔ CI/CD con GitHub Actions configurado </br>
+
+---
+### 🧱 Arquitectura
+
+Este proyecto utiliza patrones comunes en aplicaciones backend con Spring Boot:
+```nginx
+Controller → Service → Repository → Data en memoria runtime
 ```
 
-- Para los badges de build y coverage (las imágenes que ves con el build passing y el % en este README), tenés que reemplazar `tp-worldcapp-2023-gr-xx` por el repositorio correspondiente.
+- **Controller**: define los endpoints HTTP
+- **Service**: comunicacion con repositorio y validacion de datos
+- **Repository**: Modelo de base de datos. Guarda datos en memoria (Sin motor de base de datos)
+- **Model**: contiene lógica de negocio y patrones de diseño. Representan los datos almacenados.
 
-## El proyecto
+---
+### 📦 Tech Stack
+| **Tecnología**  	|  Versión / Rol 	| 
+|---	|---	|
+|  **Kotlin** 	|  Lenguaje principal 	|  
+|  **Spring Boot** 	|  Framework principal 	|  
+|   **Spring Web**	|   Construcción de API REST	|  
+|   **Gradle**	|   Build tools	|  
+|   **Spring Web**	|   Testing	|  
 
-Antes que nada, la idea de este proyecto es que te sirva como base para poder desarrollar el backend en la materia [Algoritmos 3](https://algo3.uqbar-project.org/). Por eso está basado en _Maven_, y el archivo `build.gradle.kts` tiene dependencias a
+---
+### 🏁 Comenzando
+**Pre-requisitos**
 
-- Spring Boot
-- JUnit
-- JaCoCo (Java Code Coverage), para que agregues el % de cobertura en el README
-- la versión de Kotlin que estaremos usando
-- además de estar basado en la JDK 21
+Asegúrate de tener instalado:
+- JDK 17 o superior
+- Gradle
+- (Opcional) Postman o REST client para probar endpoints
 
-### Pasos para adaptar tu proyecto de Algo2 a Algo3
+---
+### 🧾 Instalación
 
-El proceso más simple para que puedan reutilizar el proyecto de Algo2 en Algo3 es:
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/CatalinaCorrea-png/Algo-que-pedir-backend-kotlin-2025.git
+cd Algo-que-pedir-backend-kotlin-2025
+```
 
-- generar una copia de todo el directorio que contiene este proyecto
-- eliminar la carpeta `.git` que está oculta
-- copiar del proyecto de Algo2 las carpetas `src/main/kotlin` y `src/test/kotlin` y la ubican en el mismo lugar en el proyecto de Algo3
-- apuntar al proyecto de github mediante
+2. **Construir el proyecto**
 
 ```bash
-git remote add origin ...dirección del repo git...
+./gradlew clean build
+```
+3. **Ejecutar el backend**
+```bash
+./gradlew bootRun
+```
+El servidor levantará en: http://localhost:9000
+
+---
+### 🌐 Endpoints API (Ejemplos)
+
+| Método  |	Ruta  |	Descripción | Tipo de Usuario(*) |
+|--- |--- |--- |--- |
+| GET |	/pedidos/ |	Lista todos los pedidos | Cliente |
+| GET |	/pedido/{id} |	Busca pedido por ID | Cliente |
+| GET |	/pedidos-usuario/ |	Busca pedidos del usuario por su email (RequestParam) | Cliente |
+| POST  |	/create-order/  |	Crea un nuevo pedido  | Cliente |
+| PUT |	/preparar_pedido/{id}} |	Actualiza el estado del pedido a preparado  | Local |
+| DELETE  |	/eliminar-ingrediente/{id} |	Elimina ingrediente | Local |
+
+- (*) Esta aplicacion funciona como backend para dos interfaces/aplicaciones web: Una destinada al Cliente y otra destinada a el Local/Restaurante
+---
+### 🧪 Testing
+
+Este proyecto incluye tests automatizados.
+
+Ejecutar tests:
+```bash
+./gradlew test
 ```
 
-El proyecto tiene un main, en la clase `ProyectoApplication`, que levantará el servidor web en el puerto 9000, tienen que renombrarlo al TP actual. También tenés
+---
+### 📦 Base de Datos
 
-- un test de integración de ejemplo (en `src/test/kotlin`)
-# Algo-que-pedir-backend-kotlin-2025
+Este proyecto no cuenta con integracion a base de datos. La información es almacenada en tiempo de compilación (memoria) dentro de los repositorios.
+
+---
+### 📘 Información Extra
+
+✔ Usa DTOs para separar entidades de API
+
+✔ Maneja y mapea excepciones con controladores globales
+
+✔ Logica de negocio que sigue Patrones de Diseño como Strategy, Composite, Template Method, Observers.
+
+✔ Tests unitarios + de integración 
+
+---
+### 💻 **Desarrolladores**
+- Catalina Correa
+- Nicolas Cernadas
+- Dana Cossettini Reyes 
+- Maximiliano Andres Bianchimano 
+- Fernanda Perez
+
+---
+### 📬 **Contacto**
+
+👩‍💻 **Catalina Correa** – Estudiante de informática / Desarrolladora - 📧 catalinayazmincorrea@gmail.com
+
