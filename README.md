@@ -1,6 +1,7 @@
 # 🛠️ Algo-que-pedir-backend-kotlin-2025
+*Trabajo práctico de la materia Algoritmos III - Tecnicatura en Programación Informática - UNSAM 2C 2025.*
 
-**Backend API en Kotlin con Spring Boot** – una aplicación RESTful construida para el proyecto académico ***Algo que pedir*** - Trabajo práctico de la materia Algoritmos III - Tecnicatura en Programación Informática - UNSAM 2C 2025. Esta API sirve como backend para funcionalidades de manejo de datos y lógica de negocio, usando Spring Boot + Kotlin para un desarrollo moderno, seguro y escalable.
+**Backend API en Kotlin con Spring Boot** – una aplicación RESTful construida para el proyecto académico ***Algo que pedir***. Esta API sirve como backend para funcionalidades de manejo de datos y lógica de negocio, usando Spring Boot + Kotlin para un desarrollo moderno, seguro y escalable.
 
 ---
 ### 🚀 Features
